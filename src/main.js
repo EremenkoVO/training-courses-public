@@ -1,12 +1,9 @@
 import Vue from "vue";
-import * as fb from "firebase";
+import firebase from "firebase";
 import App from "./App.vue";
 import vuetify from "./plugins/vuetify";
 import store from "./store";
 import router from "./route";
-import moment from "moment";
-
-moment.locale("ru");
 
 Vue.config.productionTip = false;
 
@@ -14,24 +11,23 @@ new Vue({
   vuetify,
   store,
   router,
-  moment,
   render: (h) => h(App),
   created() {
-    var firebaseConfig = {
-      // Конфигурация firebase
-      apiKey: "AIzaSyBjQNN7rkE9tMUeJ_YJvvy3BfroxXSKavg",
-      authDomain: "pages-history-lesson-math.firebaseapp.com",
-      databaseURL: "https://pages-history-lesson-math.firebaseio.com",
-      projectId: "pages-history-lesson-math",
-      storageBucket: "pages-history-lesson-math.appspot.com",
-      messagingSenderId: "68228576468",
-      appId: "1:68228576468:web:bf30b471d37a3ba084f741",
-      measurementId: "G-ET63NDSKF8",
+    const firebaseConfig = {
+      apiKey: "AIzaSyBPIDSnG3_d_qnRa_uih6m_NVtKOoJy6j8",
+      authDomain: "pages-history-lesson-mat-c6a0d.firebaseapp.com",
+      databaseURL:
+        "https://pages-history-lesson-mat-c6a0d-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "pages-history-lesson-mat-c6a0d",
+      storageBucket: "pages-history-lesson-mat-c6a0d.appspot.com",
+      messagingSenderId: "508167722264",
+      appId: "1:508167722264:web:13be25a2899b17ef403a6d",
+      measurementId: "G-QXZN5KTBCY",
     };
     // Initialize Firebase
-    fb.initializeApp(firebaseConfig);
+    firebase.initializeApp(firebaseConfig);
 
-    fb.auth().onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.$store.dispatch("autoLoginUser", user);
       }
