@@ -1,20 +1,29 @@
-# Веб-приложение для формирование учебных курсов
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+# traning-courses-public
 
-### Что включает в себя приложение
-
-- Форум
-- Авторизация и регистрация пользователей
-- Личная карточка пользователей
-- Конструктор (пока реализована загрузка готовых pdf-файлов)
-- Просмотр статей
----
-Установка приложения
-```sh
-npm install
+## Project setup
+```
+yarn install
 ```
 
-Запуск приложения
-```sh
-npm run serve
+### Compiles and hot-reloads for development
 ```
+yarn serve
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
+
+### Run your unit tests
+```
+yarn test:unit
+```
+
+### Lints and fixes files
+```
+yarn lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
