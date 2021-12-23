@@ -69,7 +69,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped lang="postcss">
+<style scoped lang="css">
 .modal-view {
   position: fixed;
   top: 0;
@@ -164,6 +164,8 @@ export default defineComponent({
 
 /* подвал окна */
 .modal-view__footer {
+  display: flex;
+  justify-content: flex-end;
   padding: 15px;
   border-top: 1px solid #eceeef;
 }
