@@ -12,6 +12,7 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
+    "allowJs": true,
     "types": ["webpack-env", "jest"],
     "paths": {
       "@/*": ["src/*"]
@@ -24,7 +25,8 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "src/helpers/axios.ts"
+    "src/helpers/axios.ts",
+    "src/helpers/notice.js"
   ],
   "exclude": ["node_modules"]
 }

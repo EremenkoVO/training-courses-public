@@ -2,47 +2,53 @@
   <nav class="bg-gray-800">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
-        <h2>Учебные курсы</h2>
+        <label class="title">Учебные курсы</label>
         <div class="buttons-login">
-          <button class="" @click.prevent="openModal">
-            <font-awesome-icon icon="fa-solid fa-arrow-right-to-bracket" />
+          <button
+            class="border-transparent text-white"
+            title="Авторизация"
+            @click.prevent="openModal"
+          >
+            <font-awesome-icon icon="arrow-right" />
           </button>
-          <button class=""><font-awesome-icon icon="fa-solid fa-key" /></button>
+          <button class="border-transparent text-white" title="Регистрация">
+            <font-awesome-icon icon="key" />
+          </button>
         </div>
       </div>
     </div>
   </nav>
 
   <ModalView title="Вход" :modelValue="modal" @show="hideModal">
-    <div class="px-2">
-      <label for="email">Email </label>
-      <input id="email" type="text" class="w-100" required v-model="email" />
+    <div class="p-5">
+      <div class="my-2">
+        <label for="email" class="px-2">Email </label>
+        <input type="text" name="email" id="email" required v-model="email" />
+      </div>
+      <div class="my-2">
+        <label for="password" class="px-2"> Пароль </label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          required
+          v-model="password"
+        />
+      </div>
     </div>
-    <div class="px-2">
-      <label for="password"> Пароль </label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        class="w-100"
-        required
-        v-model="password"
-      />
-    </div>
-    <div name="modal-view-footer">
+
+    <template #modal-view-footer>
       <button type="button" @click="login">Войти</button>
-    </div>
+    </template>
   </ModalView>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { User } from '../interface/user.interface';
 import ModalView from '../components/ModalView.vue';
 import axios from '../helpers/axios';
-
-library.add(faUser);
+import notice from '../helpers/notice';
 
 export default defineComponent({
   name: 'Header',
@@ -65,16 +71,19 @@ export default defineComponent({
     },
 
     login() {
-      let user = {
+      let user: User = {
         login: this.email,
         password: this.password,
       };
+
       axios
         .post('http://localhost:5000/api/auth/login/', user)
         .then((r: any) => {
+          notice.success('Авторизация прошла успешна');
           console.log(r);
         })
         .catch((e: any) => {
+          notice.error(e.response.data.message);
           console.log(e);
         });
     },
@@ -84,6 +93,11 @@ export default defineComponent({
 
 <style scoped lang="postcss">
 h2 {
+  color: white;
+}
+
+.title {
+  font-size: 20px;
   color: white;
 }
 
