@@ -2,27 +2,24 @@
   <div>
     <ModalView title="Вход" v-model="show" @show="updateModal">
       <div class="flex flex-col">
-        <div class="justify-between px-2 m-2">
-          <label for="email" class="px-2">Email</label>
-          <input
-            type="text"
-            id="email"
-            placeholder="Введите email"
+        <div class="justify-between px-2 m-2 w-100">
+          <v-input
             v-model="login"
-          />
+            type="text"
+            title="email"
+            helper="Привер: test@test.ru"
+          ></v-input>
         </div>
         <div class="justify-between px-2 m-2">
-          <label for="password" class="px-2">Пароль</label>
-          <input
-            type="password"
-            id="password"
-            placeholder="Введите ваш пароль"
-            v-model="password"
-          />
+          <v-input v-model="password" type="password" title="Пароль"></v-input>
         </div>
       </div>
-      <template #modal-view-footer>
-        <button type="button" class="text-right" @click="onLogin">Войти</button>
+      <template #modal-view-footer class="text-right">
+        <div class="text-right">
+          <button type="button" class="btn success" @click="onLogin">
+            Войти
+          </button>
+        </div>
       </template>
     </ModalView>
   </div>

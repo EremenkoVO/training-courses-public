@@ -1,0 +1,15 @@
+.btn {
+  @apply p-1 px-6 border-2 rounded-md transition;
+}
+
+.btn.success {
+  background-color: #53b175;
+  border-color: #53b175;
+  color: #fff9ff;
+}
+
+.btn.success:hover {
+  background-color: #82d8a2;
+  border-color: #82d8a2;
+  color: #fff9ff;
+}
