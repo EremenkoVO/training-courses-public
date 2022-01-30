@@ -1,39 +1,30 @@
 <template>
-  <div class="home">
-    <nav class="nav">
-      <h2 class="m-2">Учебные курсы</h2>
-      <div class="justify-around">
-        <button type="button" class="m-2" @click="loginShow = !loginShow">
-          Войти
-        </button>
-        <button type="button" class="m-2" @click="registerShow = !registerShow">
-          Регистрация
-        </button>
-      </div>
-    </nav>
-    <Login v-model="loginShow" @show="loginShow = data" />
-    <Register v-model="registerShow" @show="registerShow = data" />
+  <div class="login-page">
+    <div class="login-page__wrapper">
+      <Login />
+    </div>
   </div>
 </template>
 
 <script>
-import Login from '@/components/Login.vue';
-import Register from '@/components/Register.vue';
+import Login from '../components/Login.vue';
+
 export default {
   name: 'Home',
   components: {
     Login,
-    Register,
   },
-  data: () => ({
-    loginShow: false,
-    registerShow: false,
-  }),
+  data: () => ({}),
 };
 </script>
 
 <style scoped lang="postcss">
-.nav {
-  @apply flex justify-between h-11 bg-gray-600 text-white;
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 </style>

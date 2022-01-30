@@ -1,39 +1,67 @@
 <template>
-  <div>
-    <ModalView title="Вход" v-model="show" @show="updateModal">
-      <div class="flex flex-col">
-        <div class="justify-between px-2 m-2 w-100">
-          <v-input
-            v-model="login"
-            type="text"
-            title="email"
-            helper="Привер: test@test.ru"
-          ></v-input>
-        </div>
-        <div class="justify-between px-2 m-2">
-          <v-input v-model="password" type="password" title="Пароль"></v-input>
-        </div>
+  <div class="w-full max-w-xs">
+    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="username"
+        >
+          Username
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="username"
+          type="text"
+          placeholder="Username"
+          v-model="login"
+        />
       </div>
-      <template #modal-view-footer class="text-right">
-        <div class="text-right">
-          <button type="button" class="btn success" @click="onLogin">
-            Войти
-          </button>
-        </div>
-      </template>
-    </ModalView>
+      <div class="mb-6">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="password"
+        >
+          Password
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline;"
+          id="password"
+          type="password"
+          placeholder="******************"
+          v-model="password"
+        />
+        <a
+          class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+          href="#"
+        >
+          Forgot Password?
+        </a>
+      </div>
+      <div class="flex items-center justify-between">
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="button"
+          @click="onLogin"
+        >
+          Sign In
+        </button>
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="button"
+          @click="goTosignUp"
+        >
+          Sign Up
+        </button>
+      </div>
+    </form>
   </div>
 </template>
 
 <script>
-import ModalView from '@/components/UI/ModalView.vue';
 import notice from '../helpers/notice';
 
 export default {
   name: 'Login',
-  components: {
-    ModalView,
-  },
   props: {
     modelValue: {
       type: Boolean,
@@ -44,15 +72,7 @@ export default {
     login: '',
     password: '',
   }),
-  computed: {
-    show() {
-      return this.modelValue;
-    },
-  },
   methods: {
-    updateModal(data) {
-      this.$emit('show', data);
-    },
     onLogin() {
       let user = {
         login: this.login,
@@ -70,8 +90,9 @@ export default {
         );
       }
     },
+    goTosignUp() {
+      this.$router.push('/sign-up');
+    },
   },
 };
 </script>
-
-<style></style>
