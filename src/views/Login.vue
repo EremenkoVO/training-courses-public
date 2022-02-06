@@ -148,12 +148,10 @@ export default {
                 age: 0,
                 id_account: response._id,
               };
-              console.log(profile);
 
               axios
                 .post('profile/create', profile)
-                .then((response) => {
-                  console.log(response);
+                .then(() => {
                   this.$router.push('/profile');
                 })
                 .catch((error) => {
@@ -161,7 +159,6 @@ export default {
                 });
             })
             .catch((error) => {
-              console.log(error);
               this.error = error.response.data.message;
             });
         }

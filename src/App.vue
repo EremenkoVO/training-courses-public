@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <Header v-if="isLogin" />
     <div>
       <router-view />
     </div>
@@ -13,6 +13,11 @@ import Header from './layouts/Header.vue';
 export default {
   components: {
     Header,
+  },
+  computed: {
+    isLogin() {
+      return this.$store.getters['auth/statusLogin'];
+    },
   },
 };
 </script>

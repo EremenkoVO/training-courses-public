@@ -24,7 +24,7 @@ export default {
 }
 
 .error {
-  @apply border-2 rounded p-8 bg-red-600 text-white;
+  @apply rounded p-8 bg-red-600 text-white;
 }
 
 .link {

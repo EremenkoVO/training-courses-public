@@ -13,7 +13,6 @@ export default {
   }),
   mounted() {
     this.loadProfile();
-    console.log(this.$store);
   },
   methods: {
     loadProfile() {},

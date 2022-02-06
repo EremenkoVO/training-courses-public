@@ -10,6 +10,15 @@
             >{{ menu.label }}</router-link
           >
         </li>
+        <li>
+          <button
+            type="button"
+            class="text-blue-500 hover:text-blue-800 ml-5 cursor-pointer"
+            @click="logout"
+          >
+            Выйти
+          </button>
+        </li>
       </ul>
     </div>
   </header>
@@ -24,7 +33,12 @@ export default {
     menus: menus,
   }),
   computed: {},
-  methods: {},
+  methods: {
+    logout() {
+      this.$store.dispatch('auth/logout');
+      this.$router.push('/login');
+    },
+  },
 };
 </script>
 
