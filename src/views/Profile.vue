@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import axios from '../helpers/axios';
 export default {
   name: 'Profile',
   data: () => ({
@@ -14,6 +13,7 @@ export default {
   }),
   mounted() {
     this.loadProfile();
+    console.log(this.$store);
   },
   methods: {
     loadProfile() {},

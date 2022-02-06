@@ -22,6 +22,10 @@ const routes = [
     name: 'About',
     component: () => import('../views/About.vue'),
   },
+  {
+    path: '/:catchAll(.*)',
+    component: () => import('../views/PageNotFound.vue'),
+  },
 ];
 
 const router = createRouter({

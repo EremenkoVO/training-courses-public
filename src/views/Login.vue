@@ -181,11 +181,6 @@ export default {
 
 <style>
 .login-page {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  height: 100%;
-  width: 100%;
+  @apply flex items-center absolute justify-center h-full w-full;
 }
 </style>
